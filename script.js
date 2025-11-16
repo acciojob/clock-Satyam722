@@ -1,6 +1,8 @@
 // Function to update the timer display
 function updateTimer() {
     const timerElement = document.getElementById('timer');
+    if (!timerElement) return; // Exit if element doesn't exist
+    
     const now = new Date();
     
     // Format the date as MM/DD/YYYY
@@ -22,8 +24,8 @@ function updateTimer() {
     timerElement.textContent = `${date}, ${time}`;
 }
 
-// Update the timer immediately when the page loads
-updateTimer();
-
-// Update the timer every second (1000 milliseconds)
-setInterval(updateTimer, 1000);
+// Initialize timer when window loads
+window.onload = function() {
+    updateTimer();
+    setInterval(updateTimer, 1000);
+};
