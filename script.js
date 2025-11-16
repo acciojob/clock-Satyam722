@@ -1,12 +1,9 @@
-function updateTimer() {
-  const timerElement = document.getElementById("timer");
+window.onload = function () {
+  function updateTimer() {
+    const timerElement = document.getElementById("timer");
+    timerElement.textContent = new Date().toString();
+  }
 
-  const now = new Date();
-  timerElement.textContent = now.toString();
-}
-
-// Update immediately
-updateTimer();
-
-// Update every second
-setInterval(updateTimer, 1000);
+  updateTimer();
+  setInterval(updateTimer, 1000);
+};
